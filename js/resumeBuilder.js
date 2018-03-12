@@ -1,5 +1,6 @@
-// $('#mapDiv').prepend(googleMap);
+// Functions
 
+// $('#mapDiv').prepend(googleMap);
 // function test(link) {
 //   $('.projectThumb').on( 'click', 'a', function(e) {
 //     $('.projectThumb a').attr('href', link);
