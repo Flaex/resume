@@ -1,11 +1,11 @@
 // Functions
 
-// $('#mapDiv').prepend(googleMap);
-// function test(link) {
-//   $('.projectThumb').on( 'click', 'a', function(e) {
-//     $('.projectThumb a').attr('href', link);
-//   })
-// };
+/* $('#mapDiv').prepend(googleMap);
+function test(link) {
+  $('.projectThumb').on( 'click', 'a', function(e) {
+  $('.projectThumb a').attr('href', link);
+  })
+};*/
 
 
 function shuffle(array) {
@@ -25,7 +25,7 @@ function shuffle(array) {
     array[randomIndex] = temporaryValue;
   }
   return array;
-};
+}
 
 //Bio data
 let bio = {
@@ -52,12 +52,12 @@ bio.display = function() {
   let formattedBioText = formattedName + formattedRole + formattedMessage;
   let formattedBioData = HTMLbioInfo.replace('%data%',formattedBioText);
   $('.bio-info').prepend(formattedPic);
-  $('.bio-info').append(formattedBioData)
+  $('.bio-info').append(formattedBioData);
   $('.bioText').append(HTMLskillsStart);
   for (i=0; i < bio.skills.length;i++) {
     let formattedItem = HTMLskills.replace('%data%', bio.skills[i]);
     $('#skills').append(formattedItem);
-  };
+  }
   for (i=0; i < bio.contacts.length;i++) {
     $('.bioText').append(HTMLbioContactsStart);
     let formattedMobile = HTMLmobile.replace('%data%', bio.contacts[i].mobile);
@@ -66,7 +66,7 @@ bio.display = function() {
     let formattedLocation = HTMLlocation.replace('%data%', bio.contacts[i].location);
     let formattedItem = formattedMobile + formattedEmail + formattedGithub + formattedLocation;
     $('#topContacts').prepend(formattedItem);
-  };
+  }
 };
 $('#bio').prepend(bio.display());
 
@@ -101,7 +101,7 @@ education.display = function() {
     $('.education-entry').append(formattedData);
     let formattedDataTwo = formattedDates + formattedLocation;
     $('.education-entry').append(formattedDataTwo);
-  };
+  }
 
   for (i=0; i < education.onlineCourses.length;i++) {
     $('#education').append(HTMLschoolStart);
@@ -229,8 +229,7 @@ let projects = {
     {
       "title": "Escuela de natación Rivas",
       "date": "Oct 2017",
-      "description": "Logo design, commercial stationery, brochure, web page.",
-      "images" : ["edr-log-200.jpg"],
+      "description": "Logo design, commercial stationery, brochure, web page.",      
       "images" : [
         {
           "src": "edr-log-200.jpg",
@@ -269,6 +268,6 @@ projects.display = function() {
 
 
     };
-  };
+  }
 }
 $('#projects').append(projects.display());
