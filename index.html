@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Novanet - Profile</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDV_pfx_p7vDuTq5aT_zb61jAPmcGbyOo8"></script> -->
+</head>
+<body>
+  <div id="main">
+    <div id="bio" class="col-1 clear-fix">
+      <div class="bio-info flex-box"></div>
+    </div>
+    <hr>
+    <div style="clear: both;"></div>
+
+    <div class="flex-box paddingT">
+      <div id="education" class="col-50">
+        <h2 class="blueTwo">Education</h2>
+      </div>
+      <div id="workExperience" class="col-50">
+        <h2 class="blueTwo">Work Experience</h2>
+      </div>
+    </div>
+      <hr>
+    <div>
+      <div id="projects" class="flex-box paddingT">
+        <h2 class="blueTwo col-100">Projects</h2>
+      </div>
+      <hr>
+      <div id="mapDiv" class="paddingT">
+        <h2>Where I've Lived and Worked</h2>
+        <div id="map"></div>
+        <script>
+        function initMap() {
+          var uluru = {lat: 10.500000, lng: -66.916664};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 5,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+        }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQhe9nSUBaOnvNSv7DRj7g430Gqt94umQ&callback=initMap">
+        </script>
+      </div>
+      <hr>
+    </div>
+    </div>
+  <script src="js/jQuery.js"></script>
+  <script src="js/helper.js"></script>
+  <script src="js/resumeBuilder.js"></script>
+  <script>
+    if(document.getElementsByTagName('h1').length === 0) {
+      document.getElementById('header').style.display = 'none';
+    }
+    if(document.getElementsByClassName('work-entry').length === 0) {
+      document.getElementById('workExperience').style.display = 'none';
+    }
+    if(document.getElementsByClassName('project-entry').length === 0) {
+      document.getElementById('projects').style.display = 'none';
+    }
+    if(document.getElementsByClassName('education-entry').length === 0) {
+      document.getElementById('education').style.display = 'none';
+    }
+    if(document.getElementById('map') === null) {
+      document.getElementById('mapDiv').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
