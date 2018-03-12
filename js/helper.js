@@ -5,7 +5,7 @@ var HTMLheaderName = '<h1 class="blueThree">%data%</h1>';
 var HTMLheaderRole = '<h2 class="blueTwo ">%data%</h2>';
 var HTMLbioPic = '<div class="bioPic col-20"><img src="images/%data%"></div>';
 var HTMLbioInfo = '<div class="bioText col-80">%data%</div>';
-var HTMLbioContactsStart = '<ul id="topContacts" class="flex-box"></ul>'
+var HTMLbioContactsStart = '<ul id="topContacts" class="flex-box"></ul>';
 
 var HTMLmobile = '<li class="flex-item"><i class="fa fa-phone"></i>%data%</li>';
 var HTMLemail = '<li class="flex-item"><i class="fa fa-envelope"></i>%data%</li>';
