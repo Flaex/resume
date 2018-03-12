@@ -267,7 +267,7 @@ projects.display = function() {
       $('.project-entry:last').append(formattedItem);
 
 
-    };
+    }
   }
-}
+};
 $('#projects').append(projects.display());
