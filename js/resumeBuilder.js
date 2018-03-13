@@ -68,7 +68,7 @@ bio.display = function() {
     $('#topContacts').prepend(formattedItem);
   }
 };
-$('#bio').prepend(bio.display());
+bio.display();
 
 // Education data
 let education = {
@@ -113,7 +113,7 @@ education.display = function() {
     $('.education-entry:last').append(formattedData);
   }
 };
-$('#education').append(education.display());
+education.display();
 
 
 let work = {
@@ -146,7 +146,7 @@ work.display = function() {
     $('.work-entry:last').append(formattedData);
   }
 };
-$('#workExperience').append(work.display());
+work.display();
 
 let projects = {
   "works": [
@@ -192,7 +192,7 @@ let projects = {
       "images" : [
         {
           "src": "mdq-man1-200.jpg",
-          "href" : "mdq-man11-900.jpg"
+          "href" : "mdq-man1-900.jpg"
         },
         {
           "src": "mdq-man3-200.jpg",
@@ -229,7 +229,7 @@ let projects = {
     {
       "title": "Escuela de natación Rivas",
       "date": "Oct 2017",
-      "description": "Logo design, commercial stationery, brochure, web page.",      
+      "description": "Logo design, commercial stationery, brochure, web page.",
       "images" : [
         {
           "src": "edr-log-200.jpg",
@@ -270,4 +270,4 @@ projects.display = function() {
     }
   }
 };
-$('#projects').append(projects.display());
+projects.display();
