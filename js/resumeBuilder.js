@@ -1,13 +1,5 @@
 // Functions
 
-/* $('#mapDiv').prepend(googleMap);
-function test(link) {
-  $('.projectThumb').on( 'click', 'a', function(e) {
-  $('.projectThumb a').attr('href', link);
-  })
-};*/
-
-
 function shuffle(array) {
   let currentIndex = array.length,
     temporaryValue, randomIndex;
@@ -27,11 +19,10 @@ function shuffle(array) {
   return array;
 }
 
-//Bio data
+//Bio object
 let bio = {
   "name" : "Freddy Polanía",
   "role" : "Visual designer and front-end web developer",
-  "welcomeMessage": "Design and technology altogether",
   "contacts" : [
     {
       "mobile" : "+58.414.134.91.30",
@@ -40,12 +31,13 @@ let bio = {
       "location" : "Caracas"
     }
   ],
+  "welcomeMessage": "Design and technology altogether",
   "skills": ["Visual designer", "UI design", "Web design", "Logo and branding", "Typography"],
-  "image" : "me.jpg"
+  "biopic" : "me.jpg"
 };
 //Display function
 bio.display = function() {
-  let formattedPic = HTMLbioPic.replace('%data%', bio.image);
+  let formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
   let formattedName = HTMLheaderName.replace('%data%', bio.name);
   let formattedRole = HTMLheaderRole.replace('%data%', bio.role);
   let formattedMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
@@ -70,14 +62,15 @@ bio.display = function() {
 };
 bio.display();
 
-// Education data
+// Education object
 let education = {
   "schools" : [
     {
       "name" : "Darias Design Institute",
       "location" : "Caracas",
       "degree" : "Graphic Designer, Visual Communication mention",
-      "dates" : "July 2006 - May 2013"
+      "majors" : ["Editorial design", "Typography"],
+      "dates" : "July 2006 - May 2013",
     }
   ],
   "onlineCourses" : [
@@ -100,6 +93,10 @@ education.display = function() {
     let formattedData = formattedName + formattedDegree;
     $('.education-entry').append(formattedData);
     let formattedDataTwo = formattedDates + formattedLocation;
+    for (j=0; j < education.schools[i].majors.length;j++) {
+      let formattedMajors = HTMLschoolMajors.replace('%data%', education.schools[i].majors[j]);
+      $('.education-entry').append(formattedMajors);
+    }
     $('.education-entry').append(formattedDataTwo);
   }
 
@@ -115,21 +112,21 @@ education.display = function() {
 };
 education.display();
 
-
+//Works object
 let work = {
   "jobs": [
     {
       "employer": "Novanet",
     	"title": "Director",
-    	"dates": "May 2010 - present",
       "location": "Caracas",
+    	"dates": "May 2010 - present",
       "description": "Visual designer, UI designer, web projects managment, corporate image and branding projects, typography projects."
     },
     {
       "employer": "G2 ",
     	"title": "Graphic Designer",
-    	"dates": "Feb 2009 - June 2009",
       "location": "Caracas",
+    	"dates": "Feb 2009 - June 2009",
       "description": "Print design, final artwork, BTL."
     }
   ]
@@ -148,11 +145,12 @@ work.display = function() {
 };
 work.display();
 
+//Projects object
 let projects = {
   "works": [
     {
       "title": "Banco del Libro website",
-      "date": "May 2013",
+      "dates": "May 2013",
       "description": "Web design, html/css implementation.",
       "url" : "http://galerias.bid-dimad.org/bid_14/?p=4191",
       "images" : [
@@ -168,7 +166,7 @@ let projects = {
     },
     {
       "title": "Novanet website",
-      "date": "Jun 2015",
+      "dates": "Jun 2015",
       "description": "Responsive web design, html/css implementation.",
       "images" : [
         {
@@ -187,7 +185,7 @@ let projects = {
     },
     {
       "title": "Merlin Data Quality",
-      "date": "Ago 2017",
+      "dates": "Ago 2017",
       "description": "Corporate manual and commercial stationery design.",
       "images" : [
         {
@@ -202,7 +200,7 @@ let projects = {
     },
     {
       "title": "Take on Bar",
-      "date": "May 2016",
+      "dates": "May 2016",
       "description": "Logo design, commercial stationery, brochure, web page.",
       "images" : [
         {
@@ -217,7 +215,7 @@ let projects = {
     },
     {
       "title": "Novanet",
-      "date": "Dic 2017",
+      "dates": "Dic 2017",
       "description": "Logo design.",
       "images" : [
         {
@@ -228,8 +226,8 @@ let projects = {
     },
     {
       "title": "Escuela de natación Rivas",
-      "date": "Oct 2017",
-      "description": "Logo design, commercial stationery, brochure, web page.",
+      "dates": "Oct 2017",
+      "description": "Logo design.",
       "images" : [
         {
           "src": "edr-log-200.jpg",
@@ -240,7 +238,6 @@ let projects = {
   ]
 };
 projects.display = function() {
-
     for (i=0; i < projects.works.length;i++) {
     $('#projects').append(HTMLprojectStart);
     let formattedTitle = HTMLprojectTitle.replace('%data%', projects.works[i].title);
@@ -249,24 +246,16 @@ projects.display = function() {
     let formattedData = formattedTitle + formattedDescription + formattedDate;
     $('.project-entry:last').append(formattedData);
     for (j=0; j < projects.works[i].images.length;j++) {
-
-
-
       let shapes = [
         ["circleBg", "circle"],
         ["squareBg", "square"],
         ["triangleBg", "triangle"]
       ];
       let randomFigures = shuffle(shapes);
-      // let href = 'images/' + projects.works[i].images[j].href;
-      // let test2 = test(href);
       let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) +
       HTMLprojectImageHref.replace('%data%', projects.works[i].images[j].href)   +
       HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', projects.works[i].images[j].src);
-
       $('.project-entry:last').append(formattedItem);
-
-
     }
   }
 };
