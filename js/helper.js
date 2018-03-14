@@ -31,7 +31,7 @@ var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImageItem = '<div class="projectThumb col-25 %data%"><a href="#">';
 var HTMLprojectImageMask = '<img class=%data%';
 var HTMLprojectImage = ' src="images/%data%"></a></div>';
-var HTMLprojectModal = '<div><div class="modal-window"><img src="images/%data%" ></div></div>';
+var HTMLprojectModal = '<div class="modal"><div class="modal-window"><img src="images/%data%" ></div></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div><br>';
 var HTMLschoolName = '<h3>%data%';
