@@ -27,11 +27,12 @@ var HTMLprojectStart = '<div class="project-entry col-50"></div>';
 var HTMLprojectTitle = '<h3>%data%</h3>';
 var HTMLprojectDates = '<div class="date">%data%</div>';
 var HTMLprojectDescription = '<p>%data%</p>';
+var HTMLprojectImageContainer = '<div class="projectThumb col-25 %data%">';
 
-var HTMLprojectImageItem = '<div class="projectThumb col-25 %data%"><a href="#">';
+var HTMLprojectImageHref = '<a id="preview" href="images/%data%" onclick="test()">';
+
 var HTMLprojectImageMask = '<img class=%data%';
 var HTMLprojectImage = ' src="images/%data%"></a></div>';
-var HTMLprojectModal = '<div><div class="modal-window"><img src="images/%data%" ></div></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div><br>';
 var HTMLschoolName = '<h3>%data%';
@@ -47,6 +48,7 @@ var HTMLonlineURL = '<a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
+
 
 /*
 The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.

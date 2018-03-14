@@ -239,37 +239,24 @@ let projects = {
 };
 projects.display = function() {
     for (i=0; i < projects.works.length;i++) {
-    let modalContent = [];
     $('#projects').append(HTMLprojectStart);
     let formattedTitle = HTMLprojectTitle.replace('%data%', projects.works[i].title);
-    let formattedDate = HTMLprojectDates.replace('%data%', projects.works[i].dates);
+    let formattedDate = HTMLprojectDates.replace('%data%', projects.works[i].date);
     let formattedDescription = HTMLprojectDescription.replace('%data%', projects.works[i].description);
     let formattedData = formattedTitle + formattedDescription + formattedDate;
     $('.project-entry:last').append(formattedData);
     for (j=0; j < projects.works[i].images.length;j++) {
-      //Serial id's to a tag
-      $.each($('.projectThumb a'), function(index, value){
-          let num = index + 1;
-          $(value).attr("data-target","simpleModal_"+ num);
-          $(value).attr("data-toggle","modal");
-      });
-      //Serial id's to modal content divs
-      $.each($('#modal-content>div'), function(index, value){
-          let num = index + 1;
-          $(value).attr("id","simpleModal_"+ num);
-          $(value).attr("class","modal");
-      });
       let shapes = [
         ["circleBg", "circle"],
         ["squareBg", "square"],
         ["triangleBg", "triangle"]
       ];
       let randomFigures = shuffle(shapes);
-      let formattedItem = HTMLprojectImageItem.replace('%data%', randomFigures[0][0]) + HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', projects.works[i].images[j].src);
-      modalContent.push(HTMLprojectModal.replace('%data%', projects.works[i].images[j].href));
+      let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) +
+      HTMLprojectImageHref.replace('%data%', projects.works[i].images[j].href)   +
+      HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', projects.works[i].images[j].src);
       $('.project-entry:last').append(formattedItem);
     }
-    $('#modal-content').append(modalContent);
   }
 };
 projects.display();
