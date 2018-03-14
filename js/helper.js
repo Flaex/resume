@@ -5,16 +5,16 @@ var HTMLheaderName = '<h1 class="blueThree">%data%</h1>';
 var HTMLheaderRole = '<h2 class="blueTwo ">%data%</h2>';
 var HTMLbioPic = '<div class="bioPic col-20"><img src="images/%data%"></div>';
 var HTMLbioInfo = '<div class="bioText col-80">%data%</div>';
-var HTMLbioContactsStart = '<ul id="topContacts" class="flex-box"></ul>';
+var HTMLbioContactsStart = '<ul id="topContacts"><h4>Contact me:</h4></ul>';
 
-var HTMLmobile = '<li class="flex-item"><i class="fa fa-phone"></i>%data%</li>';
-var HTMLemail = '<li class="flex-item"><i class="fa fa-envelope"></i>%data%</li>';
-var HTMLgithub = '<li class="flex-item"><i class="fa fa-github"></i>%data%</li>';
-var HTMLlocation = '<li class="flex-item"><i class="fa fa-map-marker"></i>%data%</li>';
+var HTMLmobile = '<li ><i class="fa fa-phone"></i>%data%</li>';
+var HTMLemail = '<li ><i class="fa fa-envelope"></i>%data%</li>';
+var HTMLgithub = '<li ><i class="fa fa-github"></i>%data%</li>';
+var HTMLlocation = '<li ><i class="fa fa-map-marker"></i>%data%</li>';
 var HTMLwelcomeMsg = '<h3 class="welcomemessage">%data%</h3>';
 
 var HTMLskillsStart = '<ul id="skills"><h4>Skills at a Glance:</h4></ul>';
-var HTMLskills = '<li class="flex-item"><i class="fa fa-caret-right"></i>%data%</li>';
+var HTMLskills = '<li><i class="fa fa-caret-right"></i>%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div><br>';
 var HTMLworkEmployer = '<h3>%data%';
@@ -28,9 +28,10 @@ var HTMLprojectTitle = '<h3>%data%</h3>';
 var HTMLprojectDates = '<div class="date">%data%</div>';
 var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImageContainer = '<div class="projectThumb col-25 %data%">';
-var HTMLprojectImageHref = '<a id="preview" href="images/%data%" >';
-var HTMLprojectImageMask = '<img class=%data%';
+var HTMLprojectImageHref = '<a >';
+var HTMLprojectImageMask = '<img class="%data%"';
 var HTMLprojectImage = ' src="images/%data%"></a></div>';
+var HTMLprojectModal = '<div class="modalDialog"><div><a href="#close" title="Close" class="close"><strong>x</strong></a><img class="preview" src="images/%data%"></div></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div><br>';
 var HTMLschoolName = '<h3>%data%';

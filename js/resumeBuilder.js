@@ -57,7 +57,7 @@ bio.display = function() {
     let formattedGithub = HTMLgithub.replace('%data%', bio.contacts[i].github);
     let formattedLocation = HTMLlocation.replace('%data%', bio.contacts[i].location);
     let formattedItem = formattedMobile + formattedEmail + formattedGithub + formattedLocation;
-    $('#topContacts').prepend(formattedItem);
+    $('#topContacts').append(formattedItem);
   }
 };
 bio.display();
@@ -241,7 +241,7 @@ projects.display = function() {
     for (i=0; i < projects.works.length;i++) {
     $('#projects').append(HTMLprojectStart);
     let formattedTitle = HTMLprojectTitle.replace('%data%', projects.works[i].title);
-    let formattedDate = HTMLprojectDates.replace('%data%', projects.works[i].date);
+    let formattedDate = HTMLprojectDates.replace('%data%', projects.works[i].dates);
     let formattedDescription = HTMLprojectDescription.replace('%data%', projects.works[i].description);
     let formattedData = formattedTitle + formattedDescription + formattedDate;
     $('.project-entry:last').append(formattedData);
@@ -252,11 +252,20 @@ projects.display = function() {
         ["triangleBg", "triangle"]
       ];
       let randomFigures = shuffle(shapes);
-      let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) +
-      HTMLprojectImageHref.replace('%data%', projects.works[i].images[j].href)   +
-      HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', projects.works[i].images[j].src);
+      let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) + HTMLprojectImageHref + HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', projects.works[i].images[j].src)
+      + HTMLprojectModal.replace('%data%', projects.works[i].images[j].href);
       $('.project-entry:last').append(formattedItem);
     }
+    //Serial id's to a tag
+      $.each($('.projectThumb a'), function(index, value){
+          let num = index + 1;
+          $(value).attr("href","#openModal"+ num);
+      });
+      //Serial id's to modal
+        $.each($('.modalDialog'), function(index, value){
+            let num = index + 1;
+            $(value).attr("id","openModal"+ num);
+        });
   }
 };
 projects.display();
