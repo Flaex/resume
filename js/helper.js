@@ -28,9 +28,7 @@ var HTMLprojectTitle = '<h3>%data%</h3>';
 var HTMLprojectDates = '<div class="date">%data%</div>';
 var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImageContainer = '<div class="projectThumb col-25 %data%">';
-
-var HTMLprojectImageHref = '<a id="preview" href="images/%data%" onclick="test()">';
-
+var HTMLprojectImageHref = '<a id="preview" href="images/%data%" >';
 var HTMLprojectImageMask = '<img class=%data%';
 var HTMLprojectImage = ' src="images/%data%"></a></div>';
 
