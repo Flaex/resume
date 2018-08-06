@@ -1,3 +1,146 @@
+var db = {
+  bio: [
+    {
+      name : 'Freddy polanía',
+      role : 'Visual designer and front-end web developer',
+      contacts : [
+        {
+          mobile : '+58.414.134.91.30',
+          email : 'fpolania@gmail.com',
+          github : 'https://github.com/Flaex',
+          location : 'Caracas'
+        }
+      ],
+      welcomeMessage: 'Design and technology altogether',
+      skills: ['Visual designer', 'UI design', 'Web design', 'Logo and branding', 'Typography'],
+      biopic : 'me.jpg'
+    }
+  ],
+  schools : [
+    {
+      name : 'Darias Design Institute',
+      location : 'Caracas',
+      degree : 'Graphic Designer, Visual Communication mention',
+      majors : ['Editorial design', 'Typography'],
+      dates : 'July 2006 - May 2013',
+    }
+  ],
+  onlineCourses : [
+    {
+      title : 'Front-End Web Developer Nanodegree',
+      school : 'Udacity',
+      dates : 'October 2017 - present',
+      url : 'https://www.udacity.com/'
+    }
+  ],
+  jobs : [
+    {
+      employer: 'Novanet',
+    	title: 'Director',
+      location: 'Caracas',
+    	dates: 'May 2010 - present',
+      description: 'Visual designer, UI designer, web projects managment, corporate image and branding projects, typography projects.'
+    },
+    {
+      employer: 'G2 ',
+    	title: 'Graphic Designer',
+      location: 'Caracas',
+    	dates: 'Feb 2009 - June 2009',
+      description: 'Print design, final artwork, BTL.'
+    }
+  ],
+  works: [
+    {
+      title: 'Banco del Libro website',
+      dates: 'May 2013',
+      description: 'Web design, html/css implementation.',
+      url : 'http://galerias.bid-dimad.org/bid_14/?p=4191',
+      images : [
+        {
+          src: 'bdl-web1-200.jpg',
+          href : 'bdl-web1-900.jpg'
+        },
+        {
+          src: 'bdl-web2-200.jpg',
+          href : 'bdl-web2-900.jpg'
+        }
+      ]
+    },
+    {
+      title: 'Novanet website',
+      dates: 'Jun 2015',
+      description: 'Responsive web design, html/css implementation.',
+      images : [
+        {
+          src: 'nn-web1-200.jpg',
+          href : 'nn-web1-900.jpg'
+        },
+        {
+          src: 'nn-web2-200.jpg',
+          href : 'nn-web2-900.jpg'
+        },
+        {
+          src: 'nn-web3-200.jpg',
+          href : 'nn-web3-900.jpg'
+        }
+      ]
+    },
+    {
+      title: 'Merlin Data Quality',
+      dates: 'Ago 2017',
+      description: 'Corporate manual and commercial stationery design.',
+      images : [
+        {
+          src: 'mdq-man1-200.jpg',
+          href : 'mdq-man1-900.jpg'
+        },
+        {
+          src: 'mdq-man3-200.jpg',
+          href : 'mdq-man3-900.jpg'
+        }
+      ]
+    },
+    {
+      title: 'Take on Bar',
+      dates: 'May 2016',
+      description: 'Logo design, commercial stationery, brochure, web page.',
+      images : [
+        {
+          src: 'tob-pap1-200.jpg',
+          href : 'tob-pap1-900.jpg'
+        },
+        {
+          src: 'tob-pap2-200.jpg',
+          href : 'tob-pap2-900.jpg'
+        }
+      ]
+    },
+    {
+      title: 'Novanet',
+      dates: 'Dic 2017',
+      description: 'Logo design.',
+      images : [
+        {
+          src: 'nn-log-200.jpg',
+          href : 'nn-log-900.jpg'
+        }
+      ]
+    },
+    {
+      title: 'Escuela de natación Rivas',
+      dates: 'Oct 2017',
+      description: 'Logo design.',
+      images : [
+        {
+          src: 'edr-log-200.jpg',
+          href : 'edr-log-900.jpg'
+        }
+      ]
+    }
+  ]
+};
+
+
 // Functions
 
 function shuffle(array) {
@@ -19,22 +162,6 @@ function shuffle(array) {
   return array;
 }
 
-//Bio object
-let bio = {
-  "name" : "Freddy Polanía",
-  "role" : "Visual designer and front-end web developer",
-  "contacts" : [
-    {
-      "mobile" : "+58.414.134.91.30",
-      "email" : "fpolania@gmail.com",
-      "github" : "https://github.com/Flaex",
-      "location" : "Caracas"
-    }
-  ],
-  "welcomeMessage": "Design and technology altogether",
-  "skills": ["Visual designer", "UI design", "Web design", "Logo and branding", "Typography"],
-  "biopic" : "me.jpg"
-};
 //Display function
 bio.display = function() {
   let formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
@@ -62,26 +189,6 @@ bio.display = function() {
 };
 bio.display();
 
-// Education object
-let education = {
-  "schools" : [
-    {
-      "name" : "Darias Design Institute",
-      "location" : "Caracas",
-      "degree" : "Graphic Designer, Visual Communication mention",
-      "majors" : ["Editorial design", "Typography"],
-      "dates" : "July 2006 - May 2013",
-    }
-  ],
-  "onlineCourses" : [
-    {
-      "title" : "Front-End Web Developer Nanodegree",
-      "school" : "Udacity",
-      "dates" : "October 2017 - present",
-      "url" : "https://www.udacity.com/"
-    }
-  ]
-};
 // Display function
 education.display = function() {
   for (i=0; i < education.schools.length;i++) {
@@ -112,25 +219,6 @@ education.display = function() {
 };
 education.display();
 
-//Works object
-let work = {
-  "jobs": [
-    {
-      "employer": "Novanet",
-    	"title": "Director",
-      "location": "Caracas",
-    	"dates": "May 2010 - present",
-      "description": "Visual designer, UI designer, web projects managment, corporate image and branding projects, typography projects."
-    },
-    {
-      "employer": "G2 ",
-    	"title": "Graphic Designer",
-      "location": "Caracas",
-    	"dates": "Feb 2009 - June 2009",
-      "description": "Print design, final artwork, BTL."
-    }
-  ]
-};
 work.display = function() {
   for (i=0; i < work.jobs.length;i++) {
     $('#workExperience').append(HTMLworkStart);
@@ -145,98 +233,6 @@ work.display = function() {
 };
 work.display();
 
-//Projects object
-let projects = {
-  "works": [
-    {
-      "title": "Banco del Libro website",
-      "dates": "May 2013",
-      "description": "Web design, html/css implementation.",
-      "url" : "http://galerias.bid-dimad.org/bid_14/?p=4191",
-      "images" : [
-        {
-          "src": "bdl-web1-200.jpg",
-          "href" : "bdl-web1-900.jpg"
-        },
-        {
-          "src": "bdl-web2-200.jpg",
-          "href" : "bdl-web2-900.jpg"
-        }
-      ]
-    },
-    {
-      "title": "Novanet website",
-      "dates": "Jun 2015",
-      "description": "Responsive web design, html/css implementation.",
-      "images" : [
-        {
-          "src": "nn-web1-200.jpg",
-          "href" : "nn-web1-900.jpg"
-        },
-        {
-          "src": "nn-web2-200.jpg",
-          "href" : "nn-web2-900.jpg"
-        },
-        {
-          "src": "nn-web3-200.jpg",
-          "href" : "nn-web3-900.jpg"
-        }
-      ]
-    },
-    {
-      "title": "Merlin Data Quality",
-      "dates": "Ago 2017",
-      "description": "Corporate manual and commercial stationery design.",
-      "images" : [
-        {
-          "src": "mdq-man1-200.jpg",
-          "href" : "mdq-man1-900.jpg"
-        },
-        {
-          "src": "mdq-man3-200.jpg",
-          "href" : "mdq-man3-900.jpg"
-        }
-      ]
-    },
-    {
-      "title": "Take on Bar",
-      "dates": "May 2016",
-      "description": "Logo design, commercial stationery, brochure, web page.",
-      "images" : [
-        {
-          "src": "tob-pap1-200.jpg",
-          "href" : "tob-pap1-900.jpg"
-        },
-        {
-          "src": "tob-pap2-200.jpg",
-          "href" : "tob-pap2-900.jpg"
-        }
-      ]
-    },
-    {
-      "title": "Novanet",
-      "dates": "Dic 2017",
-      "description": "Logo design.",
-      "images" : [
-        {
-          "src": "nn-log-200.jpg",
-          "href" : "nn-log-900.jpg"
-        }
-      ]
-    },
-    {
-      "title": "Escuela de natación Rivas",
-      "dates": "Oct 2017",
-      "description": "Logo design.",
-      "images" : [
-        {
-          "src": "edr-log-200.jpg",
-          "href" : "edr-log-900.jpg"
-        }
-      ]
-    }
-  ]
-};
 projects.display = function() {
     for (i=0; i < projects.works.length;i++) {
     $('#projects').append(HTMLprojectStart);
