@@ -1,4 +1,5 @@
-var db = {
+//Model
+let db = {
   bio: [
     {
       name : 'Freddy polanía',
@@ -140,128 +141,139 @@ var db = {
   ]
 };
 
+//View
+let sectionRender = {
+  bio : function() {
+      let formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
+      let formattedName = HTMLheaderName.replace('%data%', bio.name);
+      let formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+      let formattedMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
+      let formattedBioText = formattedName + formattedRole + formattedMessage;
+      let formattedBioData = HTMLbioInfo.replace('%data%',formattedBioText);
+      $('.bio-info').prepend(formattedPic);
+      $('.bio-info').append(formattedBioData);
+      $('.bioText').append(HTMLskillsStart);
+      for (i=0; i < bio.skills.length;i++) {
+          let formattedItem = HTMLskills.replace('%data%', bio.skills[i]);
+          $('#skills').append(formattedItem);
+      }
+      for (i=0; i < bio.contacts.length;i++) {
+          $('.bioText').append(HTMLbioContactsStart);
+          let formattedMobile = HTMLmobile.replace('%data%', bio.contacts[i].mobile);
+          let formattedEmail = HTMLemail.replace('%data%', bio.contacts[i].email);
+          let formattedGithub = HTMLgithub.replace('%data%', bio.contacts[i].github);
+          let formattedLocation = HTMLlocation.replace('%data%', bio.contacts[i].location);
+          let formattedItem = formattedMobile + formattedEmail + formattedGithub + formattedLocation;
+          $('#topContacts').append(formattedItem);
+      }
+  };
+  education: function() {
+      for (i=0; i < education.schools.length;i++) {
+          $('#education').append(HTMLschoolStart);
+          let formattedName = HTMLschoolName.replace('%data%', education.schools[i].name);
+          let formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location);
+          let formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree);
+          let formattedDates = HTMLschoolDates.replace('%data%', education.schools[i].dates);
+          let formattedData = formattedName + formattedDegree;
+          $('.education-entry').append(formattedData);
+          let formattedDataTwo = formattedDates + formattedLocation;
+          for (j=0; j < education.schools[i].majors.length;j++) {
+            let formattedMajors = HTMLschoolMajors.replace('%data%', education.schools[i].majors[j]);
+            $('.education-entry').append(formattedMajors);
+          }
+          $('.education-entry').append(formattedDataTwo);
+      }
 
-// Functions
+      for (i=0; i < education.onlineCourses.length;i++) {
+          $('#education').append(HTMLschoolStart);
+          let formattedTitle = HTMLonlineTitle.replace('%data%',  education.onlineCourses[i].title);
+          let formattedLocation = HTMLonlineSchool.replace('%data%',  education.onlineCourses[i].school);
+          let formattedDegree = HTMLonlineDates.replace('%data%',  education.onlineCourses[i].dates);
+          let formattedURL = HTMLonlineURL.replace('%data%', education.onlineCourses[i].url);
+          let formattedData = formattedTitle + formattedLocation + formattedDegree + formattedURL;
+          $('.education-entry:last').append(formattedData);
+      }
+  };
+  projects: function() {
+      for (i=0; i < projects.works.length;i++) {
+      $('#projects').append(HTMLprojectStart);
+      let formattedTitle = HTMLprojectTitle.replace('%data%', projects.works[i].title);
+      let formattedDate = HTMLprojectDates.replace('%data%', projects.works[i].dates);
+      let formattedDescription = HTMLprojectDescription.replace('%data%', projects.works[i].description);
+      let formattedData = formattedTitle + formattedDescription + formattedDate;
+      $('.project-entry:last').append(formattedData);
+      for (j=0; j < projects.works[i].images.length;j++) {
+        let shapes = [
+          ["circleBg", "circle"],
+          ["squareBg", "square"],
+          ["triangleBg", "triangle"]
+        ];
+        let randomFigures = shuffle(shapes);
+        let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) + HTMLprojectImageHref + HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', projects.works[i].images[j].src)
+        + HTMLprojectModal.replace('%data%', projects.works[i].images[j].href);
+        $('.project-entry:last').append(formattedItem);
+      }
+      //Serial id's to a tag
+        $.each($('.projectThumb a'), function(index, value){
+            let num = index + 1;
+            $(value).attr("href","#openModal"+ num);
+        });
+        //Serial id's to modal
+          $.each($('.modalDialog'), function(index, value){
+              let num = index + 1;
+              $(value).attr("id","openModal"+ num);
+          });
+    }
+  };
+  //helpers
+  shuffle: function(array) {
+    let currentIndex = array.length,
+      temporaryValue, randomIndex;
 
-function shuffle(array) {
-  let currentIndex = array.length,
-    temporaryValue, randomIndex;
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
 
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  };
 }
 
-//Display function
-bio.display = function() {
-  let formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
-  let formattedName = HTMLheaderName.replace('%data%', bio.name);
-  let formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-  let formattedMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
-  let formattedBioText = formattedName + formattedRole + formattedMessage;
-  let formattedBioData = HTMLbioInfo.replace('%data%',formattedBioText);
-  $('.bio-info').prepend(formattedPic);
-  $('.bio-info').append(formattedBioData);
-  $('.bioText').append(HTMLskillsStart);
-  for (i=0; i < bio.skills.length;i++) {
-    let formattedItem = HTMLskills.replace('%data%', bio.skills[i]);
-    $('#skills').append(formattedItem);
-  }
-  for (i=0; i < bio.contacts.length;i++) {
-    $('.bioText').append(HTMLbioContactsStart);
-    let formattedMobile = HTMLmobile.replace('%data%', bio.contacts[i].mobile);
-    let formattedEmail = HTMLemail.replace('%data%', bio.contacts[i].email);
-    let formattedGithub = HTMLgithub.replace('%data%', bio.contacts[i].github);
-    let formattedLocation = HTMLlocation.replace('%data%', bio.contacts[i].location);
-    let formattedItem = formattedMobile + formattedEmail + formattedGithub + formattedLocation;
-    $('#topContacts').append(formattedItem);
-  }
-};
-bio.display();
+//Controller
+let controller = {
 
-// Display function
-education.display = function() {
-  for (i=0; i < education.schools.length;i++) {
-    $('#education').append(HTMLschoolStart);
-    let formattedName = HTMLschoolName.replace('%data%', education.schools[i].name);
-    let formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location);
-    let formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree);
-    let formattedDates = HTMLschoolDates.replace('%data%', education.schools[i].dates);
-    let formattedData = formattedName + formattedDegree;
-    $('.education-entry').append(formattedData);
-    let formattedDataTwo = formattedDates + formattedLocation;
-    for (j=0; j < education.schools[i].majors.length;j++) {
-      let formattedMajors = HTMLschoolMajors.replace('%data%', education.schools[i].majors[j]);
-      $('.education-entry').append(formattedMajors);
+    init: function() {
+        // set our current cat to the first one in the list
+        model.currentCat = model.cats[0];
+
+        // tell our views to initialize
+        catListView.init();
+        catView.init();
+    },
+
+    getCurrentCat: function() {
+        return model.currentCat;
+    },
+
+    getCats: function() {
+        return model.cats;
+    },
+
+    // set the currently-selected cat to the object passed in
+    setCurrentCat: function(cat) {
+        model.currentCat = cat;
+    },
+
+    // increments the counter for the currently-selected cat
+    incrementCounter: function() {
+        model.currentCat.clickCount++;
+        catView.render();
     }
-    $('.education-entry').append(formattedDataTwo);
-  }
-
-  for (i=0; i < education.onlineCourses.length;i++) {
-    $('#education').append(HTMLschoolStart);
-    let formattedTitle = HTMLonlineTitle.replace('%data%',  education.onlineCourses[i].title);
-    let formattedLocation = HTMLonlineSchool.replace('%data%',  education.onlineCourses[i].school);
-    let formattedDegree = HTMLonlineDates.replace('%data%',  education.onlineCourses[i].dates);
-    let formattedURL = HTMLonlineURL.replace('%data%', education.onlineCourses[i].url);
-    let formattedData = formattedTitle + formattedLocation + formattedDegree + formattedURL;
-    $('.education-entry:last').append(formattedData);
-  }
 };
-education.display();
-
-work.display = function() {
-  for (i=0; i < work.jobs.length;i++) {
-    $('#workExperience').append(HTMLworkStart);
-    let formattedEmployer = HTMLworkEmployer.replace('%data%',  work.jobs[i].employer);
-    let formattedTitle = HTMLworkTitle.replace('%data%',  work.jobs[i].title);
-    let formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[i].description);
-    let formattedDates = HTMLworkDates.replace('%data%', work.jobs[i].dates);
-    let formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[i].location);
-    let formattedData = formattedEmployer +formattedTitle + formattedDescription + formattedDates + formattedLocation;
-    $('.work-entry:last').append(formattedData);
-  }
-};
-work.display();
-
-projects.display = function() {
-    for (i=0; i < projects.works.length;i++) {
-    $('#projects').append(HTMLprojectStart);
-    let formattedTitle = HTMLprojectTitle.replace('%data%', projects.works[i].title);
-    let formattedDate = HTMLprojectDates.replace('%data%', projects.works[i].dates);
-    let formattedDescription = HTMLprojectDescription.replace('%data%', projects.works[i].description);
-    let formattedData = formattedTitle + formattedDescription + formattedDate;
-    $('.project-entry:last').append(formattedData);
-    for (j=0; j < projects.works[i].images.length;j++) {
-      let shapes = [
-        ["circleBg", "circle"],
-        ["squareBg", "square"],
-        ["triangleBg", "triangle"]
-      ];
-      let randomFigures = shuffle(shapes);
-      let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) + HTMLprojectImageHref + HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', projects.works[i].images[j].src)
-      + HTMLprojectModal.replace('%data%', projects.works[i].images[j].href);
-      $('.project-entry:last').append(formattedItem);
-    }
-    //Serial id's to a tag
-      $.each($('.projectThumb a'), function(index, value){
-          let num = index + 1;
-          $(value).attr("href","#openModal"+ num);
-      });
-      //Serial id's to modal
-        $.each($('.modalDialog'), function(index, value){
-            let num = index + 1;
-            $(value).attr("id","openModal"+ num);
-        });
-  }
-};
-projects.display();
