@@ -1,22 +1,20 @@
 //Model
 let db = {
-  bio: [
-    {
-      name : 'Freddy polanía',
-      role : 'Visual designer and front-end web developer',
-      contacts : [
-        {
-          mobile : '+58.414.134.91.30',
-          email : 'fpolania@gmail.com',
-          github : 'https://github.com/Flaex',
-          location : 'Caracas'
-        }
-      ],
-      welcomeMessage: 'Design and technology altogether',
-      skills: ['Visual designer', 'UI design', 'Web design', 'Logo and branding', 'Typography'],
-      biopic : 'me.jpg'
-    }
-  ],
+  bio: {
+    name : 'Freddy polanía',
+    role : 'Visual designer and front-end web developer',
+    contacts : [
+      {
+        mobile : '+58.414.134.91.30',
+        email : 'fpolania@gmail.com',
+        github : 'https://github.com/Flaex',
+        location : 'Caracas'
+      }
+    ],
+    welcomeMessage: 'Design and technology altogether',
+    skills: ['Visual designer', 'UI design', 'Web design', 'Logo and branding', 'Typography'],
+    biopic : 'me.jpg'
+  },
   schools : [
     {
       name : 'Darias Design Institute',
@@ -142,138 +140,196 @@ let db = {
 };
 
 //View
+let HTMLheaderName = '<h1 class="blueThree">%data%</h1>';
+let HTMLheaderRole = '<h2 class="blueTwo ">%data%</h2>';
+let HTMLbioPic = '<div class="bioPic col-20"><img src="images/%data%"></div>';
+let HTMLbioInfo = '<div class="bioText col-80">%data%</div>';
+let HTMLbioContactsStart = '<ul id="topContacts"><h4>Contact me:</h4></ul>';
+
+let HTMLmobile = '<li ><i class="fa fa-phone"></i>%data%</li>';
+let HTMLemail = '<li ><i class="fa fa-envelope"></i>%data%</li>';
+let HTMLgithub = '<li ><i class="fa fa-github"></i>%data%</li>';
+let HTMLlocation = '<li ><i class="fa fa-map-marker"></i>%data%</li>';
+let HTMLwelcomeMsg = '<h3 class="welcomemessage">%data%</h3>';
+
+let HTMLskillsStart = '<ul id="skills"><h4>Skills at a Glance:</h4></ul>';
+let HTMLskills = '<li><i class="fa fa-caret-right"></i>%data%</li>';
+
+let HTMLworkStart = '<div class="work-entry"></div><br>';
+let HTMLworkEmployer = '<h3>%data%';
+let HTMLworkTitle = ' - %data%</h3>';
+let HTMLworkDates = '<div class="date">%data%</div>';
+let HTMLworkLocation = '<p class="location-text">%data%</p>';
+let HTMLworkDescription = '<p>%data%</p>';
+
+let HTMLprojectStart = '<div class="project-entry col-50"></div>';
+let HTMLprojectTitle = '<h3>%data%</h3>';
+let HTMLprojectDates = '<div class="date">%data%</div>';
+let HTMLprojectDescription = '<p>%data%</p>';
+let HTMLprojectImageContainer = '<div class="projectThumb col-25 %data%">';
+let HTMLprojectImageHref = '<a >';
+let HTMLprojectImageMask = '<img class="%data%"';
+let HTMLprojectImage = ' src="images/%data%"></a></div>';
+let HTMLprojectModal = '<div class="modalDialog"><div><a href="#close" title="Close" class="close"><strong>x</strong></a><img class="preview" src="images/%data%"></div></div>';
+
+let HTMLschoolStart = '<div class="education-entry"></div><br>';
+let HTMLschoolName = '<h3>%data%';
+let HTMLschoolDegree = ' - %data%</h3>';
+let HTMLschoolMajors = '<p class="majors">• %data% </p>';
+let HTMLschoolDates = '<div class="date">%data%</div>';
+let HTMLschoolLocation = '<div class="location-text">%data%</div>';
+
+let HTMLonlineTitle = '<h3 href="#">%data%';
+let HTMLonlineSchool = ' - %data%</h3>';
+let HTMLonlineDates = '<div class="date">%data%</p>';
+let HTMLonlineURL = '<a href="#">%data%</a>';
+
+let internationalizeButton = '<button>Internationalize</button>';
+let googleMap = '<div id="map"></div>';
+
+let helpers = {
+    shuffle: function (array) {
+        let currentIndex = array.length,
+          temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          // And swap it with the current element.
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+        return array;
+    }
+}
 let sectionRender = {
-  bio : function() {
-      let formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
-      let formattedName = HTMLheaderName.replace('%data%', bio.name);
-      let formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-      let formattedMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
+  bio: function() {
+      let formattedPic = HTMLbioPic.replace('%data%', db.bio.biopic);
+      let formattedName = HTMLheaderName.replace('%data%', db.bio.name);
+      let formattedRole = HTMLheaderRole.replace('%data%', db.bio.role);
+      let formattedMessage = HTMLwelcomeMsg.replace('%data%', db.bio.welcomeMessage);
       let formattedBioText = formattedName + formattedRole + formattedMessage;
       let formattedBioData = HTMLbioInfo.replace('%data%',formattedBioText);
       $('.bio-info').prepend(formattedPic);
       $('.bio-info').append(formattedBioData);
       $('.bioText').append(HTMLskillsStart);
-      for (i=0; i < bio.skills.length;i++) {
-          let formattedItem = HTMLskills.replace('%data%', bio.skills[i]);
+      for (i=0; i < db.bio.skills.length;i++) {
+          let formattedItem = HTMLskills.replace('%data%', db.bio.skills[i]);
           $('#skills').append(formattedItem);
       }
-      for (i=0; i < bio.contacts.length;i++) {
+      for (i=0; i < db.bio.contacts.length;i++) {
           $('.bioText').append(HTMLbioContactsStart);
-          let formattedMobile = HTMLmobile.replace('%data%', bio.contacts[i].mobile);
-          let formattedEmail = HTMLemail.replace('%data%', bio.contacts[i].email);
-          let formattedGithub = HTMLgithub.replace('%data%', bio.contacts[i].github);
-          let formattedLocation = HTMLlocation.replace('%data%', bio.contacts[i].location);
+          let formattedMobile = HTMLmobile.replace('%data%', db.bio.contacts[i].mobile);
+          let formattedEmail = HTMLemail.replace('%data%', db.bio.contacts[i].email);
+          let formattedGithub = HTMLgithub.replace('%data%', db.bio.contacts[i].github);
+          let formattedLocation = HTMLlocation.replace('%data%', db.bio.contacts[i].location);
           let formattedItem = formattedMobile + formattedEmail + formattedGithub + formattedLocation;
           $('#topContacts').append(formattedItem);
       }
-  };
+  },
   education: function() {
-      for (i=0; i < education.schools.length;i++) {
+      for (i=0; i < db.schools.length;i++) {
           $('#education').append(HTMLschoolStart);
-          let formattedName = HTMLschoolName.replace('%data%', education.schools[i].name);
-          let formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location);
-          let formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree);
-          let formattedDates = HTMLschoolDates.replace('%data%', education.schools[i].dates);
+          let formattedName = HTMLschoolName.replace('%data%', db.schools[i].name);
+          let formattedLocation = HTMLschoolLocation.replace('%data%', db.schools[i].location);
+          let formattedDegree = HTMLschoolDegree.replace('%data%', db.schools[i].degree);
+          let formattedDates = HTMLschoolDates.replace('%data%', db.schools[i].dates);
           let formattedData = formattedName + formattedDegree;
           $('.education-entry').append(formattedData);
           let formattedDataTwo = formattedDates + formattedLocation;
-          for (j=0; j < education.schools[i].majors.length;j++) {
-            let formattedMajors = HTMLschoolMajors.replace('%data%', education.schools[i].majors[j]);
+          for (j=0; j < db.schools[i].majors.length;j++) {
+            let formattedMajors = HTMLschoolMajors.replace('%data%', db.schools[i].majors[j]);
             $('.education-entry').append(formattedMajors);
           }
           $('.education-entry').append(formattedDataTwo);
       }
 
-      for (i=0; i < education.onlineCourses.length;i++) {
+      for (i=0; i < db.onlineCourses.length;i++) {
           $('#education').append(HTMLschoolStart);
-          let formattedTitle = HTMLonlineTitle.replace('%data%',  education.onlineCourses[i].title);
-          let formattedLocation = HTMLonlineSchool.replace('%data%',  education.onlineCourses[i].school);
-          let formattedDegree = HTMLonlineDates.replace('%data%',  education.onlineCourses[i].dates);
-          let formattedURL = HTMLonlineURL.replace('%data%', education.onlineCourses[i].url);
+          let formattedTitle = HTMLonlineTitle.replace('%data%',  db.onlineCourses[i].title);
+          let formattedLocation = HTMLonlineSchool.replace('%data%',  db.onlineCourses[i].school);
+          let formattedDegree = HTMLonlineDates.replace('%data%',  db.onlineCourses[i].dates);
+          let formattedURL = HTMLonlineURL.replace('%data%', db.onlineCourses[i].url);
           let formattedData = formattedTitle + formattedLocation + formattedDegree + formattedURL;
           $('.education-entry:last').append(formattedData);
       }
-  };
-  projects: function() {
-      for (i=0; i < projects.works.length;i++) {
-      $('#projects').append(HTMLprojectStart);
-      let formattedTitle = HTMLprojectTitle.replace('%data%', projects.works[i].title);
-      let formattedDate = HTMLprojectDates.replace('%data%', projects.works[i].dates);
-      let formattedDescription = HTMLprojectDescription.replace('%data%', projects.works[i].description);
-      let formattedData = formattedTitle + formattedDescription + formattedDate;
-      $('.project-entry:last').append(formattedData);
-      for (j=0; j < projects.works[i].images.length;j++) {
-        let shapes = [
-          ["circleBg", "circle"],
-          ["squareBg", "square"],
-          ["triangleBg", "triangle"]
-        ];
-        let randomFigures = shuffle(shapes);
-        let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) + HTMLprojectImageHref + HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', projects.works[i].images[j].src)
-        + HTMLprojectModal.replace('%data%', projects.works[i].images[j].href);
-        $('.project-entry:last').append(formattedItem);
+  },
+  jobs: function() {
+      for (i=0; i < db.jobs.length;i++) {
+          $('#workExperience').append(HTMLworkStart);
+          let formattedEmployer = HTMLworkEmployer.replace('%data%',  db.jobs[i].employer);
+          let formattedTitle = HTMLworkTitle.replace('%data%',  db.jobs[i].title);
+          let formattedDescription = HTMLworkDescription.replace('%data%', db.jobs[i].description);
+          let formattedDates = HTMLworkDates.replace('%data%', db.jobs[i].dates);
+          let formattedLocation = HTMLworkLocation.replace('%data%', db.jobs[i].location);
+          let formattedData = formattedEmployer +formattedTitle + formattedDescription + formattedDates + formattedLocation;
+          $('.work-entry:last').append(formattedData);
       }
-      //Serial id's to a tag
-        $.each($('.projectThumb a'), function(index, value){
-            let num = index + 1;
-            $(value).attr("href","#openModal"+ num);
-        });
-        //Serial id's to modal
+  },
+  projects: function() {
+      for (i=0; i < db.works.length;i++) {
+          $('#projects').append(HTMLprojectStart);
+          let formattedTitle = HTMLprojectTitle.replace('%data%', db.works[i].title);
+          let formattedDate = HTMLprojectDates.replace('%data%', db.works[i].dates);
+          let formattedDescription = HTMLprojectDescription.replace('%data%', db.works[i].description);
+          let formattedData = formattedTitle + formattedDescription + formattedDate;
+          $('.project-entry:last').append(formattedData);
+          for (j=0; j < db.works[i].images.length;j++) {
+              let shapes = [
+                  ["circleBg", "circle"],
+                  ["squareBg", "square"],
+                  ["triangleBg", "triangle"]
+              ];
+              let randomFigures = helpers.shuffle(shapes);
+              let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) + HTMLprojectImageHref + HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', db.works[i].images[j].src)
+              + HTMLprojectModal.replace('%data%', db.works[i].images[j].href);
+              $('.project-entry:last').append(formattedItem);
+          }
+          //Serial id's to a tag
+          $.each($('.projectThumb a'), function(index, value){
+              let num = index + 1;
+              $(value).attr("href","#openModal"+ num);
+          });
+          //Serial id's to modal
           $.each($('.modalDialog'), function(index, value){
               let num = index + 1;
               $(value).attr("id","openModal"+ num);
           });
     }
-  };
-  //helpers
-  shuffle: function(array) {
-    let currentIndex = array.length,
-      temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-    return array;
-  };
+  }
 }
 
 //Controller
 let controller = {
-
     init: function() {
-        // set our current cat to the first one in the list
-        model.currentCat = model.cats[0];
-
-        // tell our views to initialize
-        catListView.init();
-        catView.init();
+        // initialize views
+        sectionRender.bio();
+        sectionRender.education();
+        sectionRender.jobs();
+        sectionRender.projects();
     },
-
-    getCurrentCat: function() {
-        return model.currentCat;
-    },
-
-    getCats: function() {
-        return model.cats;
-    },
-
-    // set the currently-selected cat to the object passed in
-    setCurrentCat: function(cat) {
-        model.currentCat = cat;
-    },
-
-    // increments the counter for the currently-selected cat
-    incrementCounter: function() {
-        model.currentCat.clickCount++;
-        catView.render();
-    }
 };
+    //Event listener
+    $('button').click(function() {
+        var $name = $('#name');
+        var iName = inName($name.text()) || function(){};
+        $name.html(iName);
+    })
+    // Google maps
+    function initMap() {
+      var uluru = {lat: 10.500000, lng: -66.916664};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 5,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+controller.init();
