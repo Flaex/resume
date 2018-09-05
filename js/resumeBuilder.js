@@ -50,24 +50,28 @@ let db = {
   ],
   works: [
     {
-      title: 'Banco del Libro website',
-      dates: 'May 2013',
-      description: 'Web design, html/css implementation.',
-      url : 'http://galerias.bid-dimad.org/bid_14/?p=4191',
-      images : [
+      title: "Banco del Libro",
+      dates: "May 2014",
+      description: "Selección Bienal Iberoamericana de Diseño 2014.",
+      url : "http://galerias.bid-dimad.org/bid_14/?p=4191",
+      images: [
         {
-          src: 'bdl-web1-200.jpg',
-          href : 'bdl-web1-900.jpg'
+          src: "bdl-web1-200.jpg",
+          href: "bdl-web1-900.jpg"
         },
         {
-          src: 'bdl-web2-200.jpg',
-          href : 'bdl-web2-900.jpg'
+          src: "bdl-web3-200.jpg",
+          href: "bdl-web3-900.jpg"
+        },
+        {
+          src: "bdl-web4-200.jpg",
+          href: "bdl-web4-900.jpg"
         }
       ]
     },
     {
       title: 'Novanet website',
-      dates: 'Jun 2015',
+      dates: 'May 2018',
       description: 'Responsive web design, html/css implementation.',
       images : [
         {
@@ -85,34 +89,117 @@ let db = {
       ]
     },
     {
-      title: 'Merlin Data Quality',
-      dates: 'Ago 2017',
-      description: 'Corporate manual and commercial stationery design.',
-      images : [
+      title: "Lobees",
+      dates: "May 2018",
+      description: "Vistas web para aplicación.",
+      images: [
         {
-          src: 'mdq-man1-200.jpg',
-          href : 'mdq-man1-900.jpg'
+          src: "lb-web1-200.jpg",
+          href: "lb-web1-900.jpg"
         },
         {
-          src: 'mdq-man3-200.jpg',
-          href : 'mdq-man3-900.jpg'
+          src: "lb-web2-200.jpg",
+          href: "lb-web2-900.jpg"
+        },
+        {
+          src: "lb-web3-200.jpg",
+          href: "lb-web3-900.jpg"
         }
       ]
     },
     {
-      title: 'Take on Bar',
-      dates: 'May 2016',
-      description: 'Logo design, commercial stationery, brochure, web page.',
-      images : [
-        {
-          src: 'tob-pap1-200.jpg',
-          href : 'tob-pap1-900.jpg'
+      title: "Caracas Design 2015",
+      dates: "Nov 2015",
+      description: "Sitio web en CMS.",
+      images: [{
+          src: "cd-web1-200.jpg",
+          href: "cd-web1-900.jpg"
         },
         {
-          src: 'tob-pap2-200.jpg',
-          href : 'tob-pap2-900.jpg'
+          src: "cd-web2-200.jpg",
+          href: "cd-web2-900.jpg"
+        },
+        {
+          src: "cd-web3-200.jpg",
+          href: "cd-web3-900.jpg"
         }
       ]
+    },
+    {
+      title: "Merlin Data Quality",
+      dates: "May 2017",
+      description: "Manual corporativo y papelería comercial.",
+      images : [
+         {
+           src: "mdq-man1-200.jpg",
+           href : "mdq-man1-900.jpg"
+         },
+         {
+           src: "mdq-man2-200.jpg",
+           href : "mdq-man2-900.jpg"
+         },
+         {
+           src: "mdq-pap2-200.jpg",
+           href : "mdq-pap2-900.jpg"
+         }
+       ]
+    },
+    {
+      title: "Take on Bar",
+      dates: "Ago 2015",
+      description: "Papelería comercial, brochure y página web",
+      images : [
+         {
+           src: "tob-pap1-200.jpg",
+           href : "tob-pap1-900.jpg"
+         },
+         {
+           src: "tob-web1-200.jpg",
+           href : "tob-web1-900.jpg"
+         },
+         {
+           src: "tob-sm-200.jpg",
+           href : "tob-sm-900.jpg"
+         }
+       ]
+    },
+    {
+      title: "Rhinovations",
+      dates: "May 2018",
+      description: "Logotipo y piezas impresas.",
+      images : [
+         {
+           src: "rv-pap1-200.jpg",
+           href : "rv-pap1-900.jpg"
+         },
+         {
+           src: "rv-bra2-200.jpg",
+           href : "rv-bra2-900.jpg"
+         },
+         {
+           src: "rv-pap2-200.jpg",
+           href : "rv-pap2-900.jpg"
+         }
+       ]
+    },
+    {
+      title: "Zaituna Café",
+      dates: "Dic 2017",
+      text: "Identidad gráfica y branding.",
+      images : [
+         {
+           src: "zc-man1-200.jpg",
+           href : "zc-man1-900.jpg"
+         },
+         {
+           src: "zc-man2-200.jpg",
+           href : "zc-man2-900.jpg"
+         },
+         {
+           src: "zc-man3-200.jpg",
+           href : "zc-man3-900.jpg"
+         }
+       ]
     },
     {
       title: 'Novanet',
@@ -126,16 +213,38 @@ let db = {
       ]
     },
     {
-      title: 'Escuela de natación Rivas',
-      dates: 'Oct 2017',
-      description: 'Logo design.',
+      title: "Rhinovations",
+      dates: "May 2018",
+      description: "Logotipo para compañía de remodelación",
       images : [
-        {
-          src: 'edr-log-200.jpg',
-          href : 'edr-log-900.jpg'
-        }
-      ]
-    }
+         {
+           src: "rv-logo-200.jpg",
+           href : "rv-logo-900.jpg"
+         }
+       ]
+    },
+    {
+      title: "Zaituna Café",
+      dates: "Dic 2017",
+      description: "Imagen gràfica para restaurant.",
+      images : [
+         {
+           src: "zc-logo-200.jpg",
+           href : "zc-logo-900.jpg"
+         }
+       ]
+    },
+    {
+      title: "Take on Bar",
+      dates: "May 2017",
+      description: "Logotipo para barra móvil.",
+      images : [
+         {
+           src: "tob-log-200.jpg",
+           href : "tob-log-900.jpg"
+         }
+       ]
+    },
   ]
 };
 
