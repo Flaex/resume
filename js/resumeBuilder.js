@@ -11,13 +11,13 @@ let db = {
         location : 'Caracas'
       }
     ],
-    welcomeMessage: 'Design and technology altogether',
+    welcomeMessage: ' UI designer, web projects managment, corporate image and branding projects.',
     skills: ['Visual designer', 'UI design', 'Web design', 'Logo and branding', 'Typography'],
     biopic : 'me.jpg'
   },
   schools : [
     {
-      name : 'Darias Design Institute',
+      name : 'Insituto de Diseño Darias',
       location : 'Caracas',
       degree : 'Graphic Designer, Visual Communication mention',
       majors : ['Editorial design', 'Typography'],
@@ -26,10 +26,18 @@ let db = {
   ],
   onlineCourses : [
     {
-      title : 'Front-End Web Developer Nanodegree',
+      title : 'Web project management',
+      school : 'Escuela web',
+      location : 'Caracas',
+      dates : 'September 2016',
+      url : 'https://www.escuelaweb.net/courses/gerencia-de-proyectos-web'
+    },
+    {
+      title : 'Front-End Web Developer Nanodegree Program',
       school : 'Udacity',
+      location : 'Online program',
       dates : 'October 2017 - present',
-      url : 'https://www.udacity.com/'
+      url : 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
     }
   ],
   jobs : [
@@ -41,18 +49,25 @@ let db = {
       description: 'Visual designer, UI designer, web projects managment, corporate image and branding projects, typography projects.'
     },
     {
-      employer: 'G2 ',
+      employer: 'G2',
     	title: 'Graphic Designer',
       location: 'Caracas',
     	dates: 'Feb 2009 - June 2009',
       description: 'Print design, final artwork, BTL.'
+    },
+    {
+      employer: 'Cursos Gerenciales',
+    	title: 'Web designer',
+      location: 'Caracas',
+    	dates: 'Jul 2008 - Feb 2009',
+      description: 'Web design, html/css layout, html mailing, web bulletins, content management systems.'
     }
   ],
-  works: [
+  web: [
     {
-      title: "Banco del Libro",
+      title: "Banco del Libro web portal",
       dates: "May 2014",
-      description: "Selección Bienal Iberoamericana de Diseño 2014.",
+      description: "Selected web portal for the 2014 BID exhibit.",
       url : "http://galerias.bid-dimad.org/bid_14/?p=4191",
       images: [
         {
@@ -70,9 +85,10 @@ let db = {
       ]
     },
     {
-      title: 'Novanet website',
+      title: 'Novanet ',
       dates: 'May 2018',
-      description: 'Responsive web design, html/css implementation.',
+      description: 'Single page web application. Front-end web development.',
+      url : "http://www.gruponovanet.com.ve",
       images : [
         {
           src: 'nn-web1-200.jpg',
@@ -91,7 +107,8 @@ let db = {
     {
       title: "Lobees",
       dates: "May 2018",
-      description: "Vistas web para aplicación.",
+      description: "View templates for back-end development.",
+      url : "http://www.gruponovanet.com.ve/test/gcolabora/lobees/",
       images: [
         {
           src: "lb-web1-200.jpg",
@@ -110,7 +127,8 @@ let db = {
     {
       title: "Caracas Design 2015",
       dates: "Nov 2015",
-      description: "Sitio web en CMS.",
+      description: "CMS integration.",
+      url : "http://caracasdesign.org/",
       images: [{
           src: "cd-web1-200.jpg",
           href: "cd-web1-900.jpg"
@@ -124,11 +142,13 @@ let db = {
           href: "cd-web3-900.jpg"
         }
       ]
-    },
+    }
+  ],
+  branding: [
     {
       title: "Merlin Data Quality",
-      dates: "May 2017",
-      description: "Manual corporativo y papelería comercial.",
+      dates: "Ago 2017",
+      description: "Corporate manual and commercial stationery.",
       images : [
          {
            src: "mdq-man1-200.jpg",
@@ -146,8 +166,8 @@ let db = {
     },
     {
       title: "Take on Bar",
-      dates: "Ago 2015",
-      description: "Papelería comercial, brochure y página web",
+      dates: "Jul 2015",
+      description: "Commercial stationery, brochure and web page",
       images : [
          {
            src: "tob-pap1-200.jpg",
@@ -165,8 +185,8 @@ let db = {
     },
     {
       title: "Rhinovations",
-      dates: "May 2018",
-      description: "Logotipo y piezas impresas.",
+      dates: "Jun 2018",
+      description: "Logo and prints.",
       images : [
          {
            src: "rv-pap1-200.jpg",
@@ -183,27 +203,25 @@ let db = {
        ]
     },
     {
-      title: "Zaituna Café",
-      dates: "Dic 2017",
-      text: "Identidad gráfica y branding.",
+      title: "Novanet",
+      dates: "Nov 2017",
+      description: "Corporate identity and branding design.",
       images : [
          {
-           src: "zc-man1-200.jpg",
-           href : "zc-man1-900.jpg"
+           src: "nn-sta-200.jpg",
+           href : "nn-sta-900.jpg"
          },
          {
-           src: "zc-man2-200.jpg",
-           href : "zc-man2-900.jpg"
-         },
-         {
-           src: "zc-man3-200.jpg",
-           href : "zc-man3-900.jpg"
+           src: "nn-web-200.jpg",
+           href : "nn-web-900.jpg"
          }
        ]
-    },
+    }
+  ],
+  logos: [
     {
       title: 'Novanet',
-      dates: 'Dic 2017',
+      dates: 'Oct 2016',
       description: 'Logo design.',
       images : [
         {
@@ -214,8 +232,8 @@ let db = {
     },
     {
       title: "Rhinovations",
-      dates: "May 2018",
-      description: "Logotipo para compañía de remodelación",
+      dates: "Jun 2018",
+      description: "Logo for remodeling company.",
       images : [
          {
            src: "rv-logo-200.jpg",
@@ -225,8 +243,8 @@ let db = {
     },
     {
       title: "Zaituna Café",
-      dates: "Dic 2017",
-      description: "Imagen gràfica para restaurant.",
+      dates: "Nov 2017",
+      description: "Graphic identity for a restaurant.",
       images : [
          {
            src: "zc-logo-200.jpg",
@@ -236,15 +254,51 @@ let db = {
     },
     {
       title: "Take on Bar",
-      dates: "May 2017",
-      description: "Logotipo para barra móvil.",
+      dates: "Jul 2015",
+      description: "Logo for portable bar company.",
       images : [
          {
            src: "tob-log-200.jpg",
            href : "tob-log-900.jpg"
          }
        ]
+    }
+  ],
+  misc: [
+    {
+      title: 'Barahunda display font',
+      dates: 'Jul 2010',
+      description: 'Display letter design.',
+      images : [
+        {
+          src: 'bh-pol-1-200.jpg',
+          href : 'bh-pol-1-900.jpg'
+        },
+        {
+          src: 'bh-typ-1-200.jpg',
+          href : 'bh-typ-1-900.jpg'
+        },
+        {
+          src: 'bh-typ-2-200.jpg',
+          href : 'bh-typ-2-900.jpg'
+        }
+      ]
     },
+    {
+      title: 'Novatipo and Novaicon',
+      dates: 'May 2018',
+      description: 'Display letter and icon design for branding concept.',
+      images : [
+        {
+          src: 'nn-typ-1-200.jpg',
+          href : 'nn-typ-1-900.jpg'
+        },
+        {
+          src: 'nn-ico-1-200.jpg',
+          href : 'nn-ico-1-900.jpg'
+        }
+      ]
+    }
   ]
 };
 
@@ -271,10 +325,12 @@ let HTMLworkDates = '<div class="date">%data%</div>';
 let HTMLworkLocation = '<p class="location-text">%data%</p>';
 let HTMLworkDescription = '<p>%data%</p>';
 
+let HTMLprojectSpec = '<div class="portfolio-spec flex-box"></div>';
 let HTMLprojectStart = '<div class="project-entry col-50"></div>';
-let HTMLprojectTitle = '<h3>%data%</h3>';
+let HTMLprojectTitle = '<h4>%data%</h4>';
 let HTMLprojectDates = '<div class="date">%data%</div>';
 let HTMLprojectDescription = '<p>%data%</p>';
+let HTMLprojectURL = '<div><a class="link" href="%data%" target="_blank">View project</a></div>';
 let HTMLprojectImageContainer = '<div class="projectThumb col-25 %data%">';
 let HTMLprojectImageHref = '<a >';
 let HTMLprojectImageMask = '<img class="%data%"';
@@ -290,8 +346,8 @@ let HTMLschoolLocation = '<div class="location-text">%data%</div>';
 
 let HTMLonlineTitle = '<h3 href="#">%data%';
 let HTMLonlineSchool = ' - %data%</h3>';
-let HTMLonlineDates = '<div class="date">%data%</p>';
-let HTMLonlineURL = '<a href="#">%data%</a>';
+let HTMLonlineDates = '<p class="date">%data%</p>';
+let HTMLonlineURL = '<a class="link" href="%data%" target="_blank">Go to website</a>';
 
 let internationalizeButton = '<button>Internationalize</button>';
 let googleMap = '<div id="map"></div>';
@@ -361,10 +417,11 @@ let sectionRender = {
       for (i=0; i < db.onlineCourses.length;i++) {
           $('#education').append(HTMLschoolStart);
           let formattedTitle = HTMLonlineTitle.replace('%data%',  db.onlineCourses[i].title);
-          let formattedLocation = HTMLonlineSchool.replace('%data%',  db.onlineCourses[i].school);
+          let formattedSchool = HTMLonlineSchool.replace('%data%',  db.onlineCourses[i].school);
+          let formattedLocation = HTMLschoolLocation.replace('%data%', db.onlineCourses[i].location);
           let formattedDegree = HTMLonlineDates.replace('%data%',  db.onlineCourses[i].dates);
           let formattedURL = HTMLonlineURL.replace('%data%', db.onlineCourses[i].url);
-          let formattedData = formattedTitle + formattedLocation + formattedDegree + formattedURL;
+          let formattedData = formattedTitle + formattedSchool + formattedLocation + formattedDegree + formattedURL;
           $('.education-entry:last').append(formattedData);
       }
   },
@@ -380,23 +437,41 @@ let sectionRender = {
           $('.work-entry:last').append(formattedData);
       }
   },
-  projects: function() {
-      for (i=0; i < db.works.length;i++) {
-          $('#projects').append(HTMLprojectStart);
-          let formattedTitle = HTMLprojectTitle.replace('%data%', db.works[i].title);
-          let formattedDate = HTMLprojectDates.replace('%data%', db.works[i].dates);
-          let formattedDescription = HTMLprojectDescription.replace('%data%', db.works[i].description);
-          let formattedData = formattedTitle + formattedDescription + formattedDate;
+  projects: function(arr) {
+      $('#projects').append(HTMLprojectSpec);
+      switch (true) {
+          case 0:
+              break;
+          case (db['web']==arr):
+              $('.portfolio-spec:last').append('<h3 class="spec blueThree col-100">Web design</h3>')
+              break;
+          case (db['branding']==arr):
+              $('.portfolio-spec:last').append('<h3 class="spec blueThree col-100">Branding</h3>')
+              break;
+          case (db['logos']==arr):
+              $('.portfolio-spec:last').append('<h3 class="spec blueThree col-100">Logos</h3>')
+              break;
+          case (db['misc']==arr):
+              $('.portfolio-spec:last').append('<h3 class="spec blueThree col-100">Typography and icons</h3>')
+              break;
+      };
+      for (i=0; i < arr.length;i++) {
+          $('.portfolio-spec:last').append(HTMLprojectStart);
+          let formattedTitle = HTMLprojectTitle.replace('%data%', arr[i].title);
+          let formattedDate = HTMLprojectDates.replace('%data%', arr[i].dates);
+          let formattedUrl = HTMLprojectURL.replace('%data%', arr[i].url);
+          let formattedDescription = HTMLprojectDescription.replace('%data%', arr[i].description);
+          let formattedData = formattedTitle + formattedDescription + formattedDate + formattedUrl;
           $('.project-entry:last').append(formattedData);
-          for (j=0; j < db.works[i].images.length;j++) {
+          for (j=0; j < arr[i].images.length;j++) {
               let shapes = [
                   ["circleBg", "circle"],
                   ["squareBg", "square"],
                   ["triangleBg", "triangle"]
               ];
               let randomFigures = helpers.shuffle(shapes);
-              let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) + HTMLprojectImageHref + HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', db.works[i].images[j].src)
-              + HTMLprojectModal.replace('%data%', db.works[i].images[j].href);
+              let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) + HTMLprojectImageHref + HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', arr[i].images[j].src)
+              + HTMLprojectModal.replace('%data%', arr[i].images[j].href);
               $('.project-entry:last').append(formattedItem);
           }
           //Serial id's to a tag
@@ -409,7 +484,8 @@ let sectionRender = {
               let num = index + 1;
               $(value).attr("id","openModal"+ num);
           });
-    }
+    };
+    $('a[href*="undefined"]').remove()
   }
 }
 
@@ -420,7 +496,10 @@ let controller = {
         sectionRender.bio();
         sectionRender.education();
         sectionRender.jobs();
-        sectionRender.projects();
+        sectionRender.projects(db.web);
+        sectionRender.projects(db.branding);
+        sectionRender.projects(db.logos);
+        sectionRender.projects(db.misc);
     },
 };
     //Event listener
@@ -431,14 +510,17 @@ let controller = {
     })
     // Google maps
     function initMap() {
-      var uluru = {lat: 10.500000, lng: -66.916664};
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 5,
-        center: uluru
-      });
-      var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-      });
+        var uluru = {
+            lat: 10.489139,
+            lng: -66.878127
+        };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
     }
 controller.init();
