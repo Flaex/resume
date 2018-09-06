@@ -8,7 +8,7 @@ let db = {
         mobile : '+58.414.134.91.30',
         email : 'fpolania@gmail.com',
         github : 'https://github.com/Flaex',
-        location : 'Caracas'
+        showcase : 'https://www.behance.net/freddypolania'
       }
     ],
     welcomeMessage: ' UI designer, web projects managment, corporate image and branding projects.',
@@ -309,10 +309,10 @@ let HTMLbioPic = '<div class="bioPic col-20"><img src="images/%data%"></div>';
 let HTMLbioInfo = '<div class="bioText col-80">%data%</div>';
 let HTMLbioContactsStart = '<ul id="topContacts"><h4>Contact me:</h4></ul>';
 
-let HTMLmobile = '<li ><i class="fa fa-phone"></i>%data%</li>';
-let HTMLemail = '<li ><i class="fa fa-envelope"></i>%data%</li>';
-let HTMLgithub = '<li ><i class="fa fa-github"></i>%data%</li>';
-let HTMLlocation = '<li ><i class="fa fa-map-marker"></i>%data%</li>';
+let HTMLmobile = '<li><i class="fa fa-phone"></i>%data%</li>';
+let HTMLemail = '<li><i class="fa fa-envelope"></i>%data%</a></li>';
+let HTMLgithub = '<li><a href="%data%" target="_blank"><i class="fa fa-github"></i>https://github.com/Flaex</a></li>';
+let HTMLshowcase = '<li><a href="%data%" target="_blank"><i class="fa fa-behance"></i>behance.net/freddypolania</a></li>';
 let HTMLwelcomeMsg = '<h3 class="welcomemessage">%data%</h3>';
 
 let HTMLskillsStart = '<ul id="skills"><h4>Skills at a Glance:</h4></ul>';
@@ -392,8 +392,8 @@ let sectionRender = {
           let formattedMobile = HTMLmobile.replace('%data%', db.bio.contacts[i].mobile);
           let formattedEmail = HTMLemail.replace('%data%', db.bio.contacts[i].email);
           let formattedGithub = HTMLgithub.replace('%data%', db.bio.contacts[i].github);
-          let formattedLocation = HTMLlocation.replace('%data%', db.bio.contacts[i].location);
-          let formattedItem = formattedMobile + formattedEmail + formattedGithub + formattedLocation;
+          let formattedShowcase = HTMLshowcase.replace('%data%', db.bio.contacts[i].showcase);
+          let formattedItem = formattedMobile + formattedEmail + formattedShowcase + formattedGithub;
           $('#topContacts').append(formattedItem);
       }
   },

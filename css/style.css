@@ -36,7 +36,7 @@ hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 
 .bioText { padding-top: 0.5%; padding-left: 1.5%; box-sizing: border-box;}
 .welcomemessage { line-height: 1.4em}
 .location-text { font-weight: 400; line-height: 1.2em}
-.majors { display: inline-block;}
+.majors { display: inline-block;    padding-right: 0.5em;}
 .date { font-style: italic;}
 a.link { font-size:1.0em;text-decoration: none; color:#30789c}
 .education-entry, .work-entry, .project-entry { padding-top:2%}
@@ -46,7 +46,8 @@ ul#skills, ul#topContacts { padding-top: 2%}
 ul#skills li {display: inline-block; font-size: 0.85em; padding-right:1%}
 ul#skills li i {font-family: 'FontAwesome'; font-style:normal; line-height: 1.5em; padding-right:2%; color:#999}
 ul#topContacts li { display: inline-block; font-size: 0.85em; padding: 0 2% 0 0}
-ul#topContacts li i {font-family: 'FontAwesome'; font-style:normal; line-height: 1.5em; padding-right:2%; color:##30789c}
+ul#topContacts li i {font-family: 'FontAwesome'; font-style:normal; line-height: 1.5em; padding-right:2%; color:#30789c}
+ul#topContacts li a { text-decoration: none; color: inherit;}
 ul#topContacts li p {margin-left:0.5em}
 
 /* Project's images */
@@ -83,7 +84,7 @@ ul#topContacts li p {margin-left:0.5em}
     .modalDialog > div {
         width: 45%;
         position: relative;
-        margin: 2% auto;        
+        margin: 2% auto;
     }
 
     img.preview {-moz-box-shadow: 1px 1px 3px #666;
