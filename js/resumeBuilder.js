@@ -11,7 +11,7 @@ let db = {
         showcase : 'https://www.behance.net/freddypolania'
       }
     ],
-    welcomeMessage: ' UI designer, web projects managment, corporate image and branding projects.',
+    welcomeMessage: ' UI designer, web project management, corporate image and branding projects.',
     skills: ['Visual designer', 'UI design', 'Web design', 'Logo and branding', 'Typography'],
     biopic : 'me.jpg'
   },
@@ -19,7 +19,7 @@ let db = {
     {
       name : 'Insituto de Diseño Darias',
       location : 'Caracas',
-      degree : 'Graphic Designer, Visual Communication mention',
+      degree : 'Graphic Designer / Visual Communication',
       majors : ['Editorial design', 'Typography'],
       dates : 'July 2006 - May 2013',
     }
@@ -46,7 +46,7 @@ let db = {
     	title: 'Director',
       location: 'Caracas',
     	dates: 'May 2010 - present',
-      description: 'Visual designer, UI designer, web projects managment, corporate image and branding projects, typography projects.'
+      description: 'Visual designer, UI designer, web project management, corporate image and branding projects, typography projects.'
     },
     {
       employer: 'G2',
