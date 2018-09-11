@@ -1,30 +1,19 @@
 
-
 * {margin:0;padding:0}
-body {margin:0 auto; font-family: 'Raleway', sans-serif; top:0; color:#666}
-img { max-width:100%}
+body {margin:0 auto; font-family:'Raleway', sans-serif; font-weight:400; top:0; color:#666}
 
 /* Containers */
-#main {width:960px; background:#fff; margin:2% auto}
-#bio { padding-bottom: 4%}
-#map { height: 400px; width: 100%; margin-top: 2%}
-.paddingT { padding-top: 4%}
+#main {background:#fff}
 
-.flex-box { display: flex; flex-wrap: wrap;}
-.col-25 { width: 25%}
-.col-50 {width:50%; padding-right: 1.5%; box-sizing: border-box;}
-.col-20 {width: 20%}
-.col-80 {width: 80%}
-.col-100 {width: 100%}
+.flex-box {display:flex; flex-wrap:wrap}
 
 /* Typography */
-h1 {font-size:1.55em; font-weight:400; text-transform: capitalize;}
-h2 {font-size:1.4em; font-weight:400}
-h3 {font-size:1.2em; font-weight:400; line-height:1.1em; }
-h3.spec {font-size: 1.3em; padding-top: 1.2em}
-h4 {font-size:1.2em; font-weight:400}
-p {font-size: 1.0em;color:#808284; line-height:1.4em}
-hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+h1 {font-weight:400}
+h2 {font-weight:400}
+h3 {font-weight:400}
+h4 {font-weight:400}
+p {color:#808284}
+hr {display:block; border:0; border-top:1px solid #ccc}
 
 /* Colors */
 .blueOne{color:#79c9f1}
@@ -32,83 +21,132 @@ hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 
 .blueThree {color:#30789c}
 
 /* Profile */
-.bioPic img {clip-path: circle(50% at 50% 50%);}
-.bioText { padding-top: 0.5%; padding-left: 1.5%; box-sizing: border-box;}
-.welcomemessage { line-height: 1.4em}
-.location-text { font-weight: 400; line-height: 1.2em}
-.majors { display: inline-block;    padding-right: 0.5em;}
-.date { font-style: italic;}
-a.link { font-size:1.0em;text-decoration: none; color:#30789c}
-.education-entry, .work-entry, .project-entry { padding-top:2%}
-.project-entry { padding-bottom: 2%}
-ul#topContacts, ul#skills {list-style:none;}
-ul#skills, ul#topContacts { padding-top: 2%}
-ul#skills li {display: inline-block; font-size: 0.85em; padding-right:1%}
-ul#skills li i {font-family: 'FontAwesome'; font-style:normal; line-height: 1.5em; padding-right:2%; color:#999}
-ul#topContacts li { display: inline-block; font-size: 0.85em; padding: 0 2% 0 0}
-ul#topContacts li i {font-family: 'FontAwesome'; font-style:normal; line-height: 1.5em; padding-right:2%; color:#30789c}
-ul#topContacts li a { text-decoration: none; color: inherit;}
+.bioPic img {clip-path:circle(50% at 50% 50%)}
+.bioText {box-sizing:border-box}
+.location-text {font-weight:400}
+.majors {display:inline-block; padding-right: 0.5em;}
+.date {font-style:italic}
+.date a {text-decoration:none; color:#79c9f1}
+a.link { font-size: 1.0em; text-decoration: none; color: #30789c;}
+ul#topContacts, ul#skills {list-style:none}
+ul#skills li {display:inline-block}
+ul#skills li i {font-family:'FontAwesome'; font-style:normal; color:#999}
+ul#topContacts li {display:inline-block}
+ul#topContacts li i {font-family:'FontAwesome'; font-style:normal; color:#30789c}
+ul#topContacts li a { text-decoration: none;  color: inherit;}
+/* Project's images */
+.circleBg {position:relative; display:inline-block; background:#79c9f1; -webkit-clip-path:circle(43% at 50% 50%); clip-path:circle(43% at 50% 50%)}
+.circle  {position:relative; -webkit-clip-path:circle(42.5% at 50% 52%); clip-path:circle(42.5% at 50% 52%); }
+.squareBg {display:inline-block; position:relative; background:#79c9f1; box-sizing:border-box; -webkit-clip-path:inset(9% 9% 12% 9%); clip-path:inset(9% 9% 12% 9%)}
+.square {display:inline-block; position:relative; background:#79c9f1; box-sizing:border-box; -webkit-clip-path:inset(10.5% 10.5%); clip-path:inset(10.5% 10.5%)}
+.triangleBg {display:inline-block; position:relative; background:#79c9f1; box-sizing:border-box; -webkit-clip-path:polygon(50% 0%, 0% 90%, 100% 90%);clip-path:polygon(50% 6%, 0% 90%, 100% 90%)}
+.triangle {display:inline-block; position:relative; background:#79c9f1; box-sizing:border-box; -webkit-clip-path:polygon(50% 10%, 0% 80%, 100% 80%);clip-path:polygon(50% 9%, 3% 91%, 97% 91%)}
+
+/* Modal styles based on http://jsfiddle.net/4qck1vr7/ */
+.modalDialog {position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(255,255,255,0.7); z-index:99999; opacity:0; -webkit-transition:opacity 400ms ease-in; -moz-transition:opacity 400ms ease-in; transition:opacity 400ms ease-in; pointer-events:none; overflow: scroll;}
+.modalDialog:target {opacity:1; pointer-events:auto}
+.modalDialog > div {position:relative}
+
+img.preview {-moz-box-shadow:1px 1px 3px #666; -webkit-box-shadow:1px 1px 3px #666; box-shadow:1px 1px 3px #666}
+
+a.close {background:#30789c; color:#fff; position:absolute; text-align:center; text-decoration:none; font-weight:bold; -webkit-border-radius:12px; -moz-border-radius:12px; border-radius:12px; -moz-box-shadow:1px 1px 3px #666; -webkit-box-shadow:1px 1px 3px #666; box-shadow:1px 1px 3px #666}
+a.close:hover {background:#79c9f1}
+
+/*-------------------------------------------------------------------------TAMAÑO DE MOVIL----------------------------------------------------------------*/
+@media only screen and (min-width:320px) {
+img {max-width:100%}
+
+/* Containers */
+#main {margin:6%}
+#bio {padding-bottom:5%}
+#map {height:300px; margin-top:4%}
+.paddingT {padding-top:3.5%}
+
+.col-20 {width:40%}
+.col-25 {width:33%}
+.col-50, .col-80, .col-100 {width:100%}
+
+/* Typography */
+h1 {font-size:1.3em}
+h2 {font-size:1.2em}
+h3 {font-size:1.1em; line-height:1.2em}
+h4 {font-size:1.0em}
+p {font-size:0.9em; line-height:1.2em}
+hr {height:1px; margin:1em 0; padding:0}
+
+/* Profile */
+.bioText {padding-top:1%}
+.welcomemessage {line-height:1.4em}
+.location-text {line-height:1.15em}
+.date {line-height:1.35em}
+.education-entry, .work-entry, .project-entry {padding-top:3%}
+.project-entry {padding-bottom:3%}
+ul#skills, ul#topContacts {padding-top:4%}
+ul#skills li {font-size:0.9em; padding-right:3%}
+ul#skills li i {line-height:1.5em; padding-right:2%}
+ul#topContacts li {font-size:0.85em; padding:0 7% 2% 0}
+ul#topContacts li i {line-height:1.5em; padding-right:3%}
 ul#topContacts li p {margin-left:0.5em}
 
 /* Project's images */
-.circleBg {position:relative; display: inline-block; background:#79c9f1; -webkit-clip-path: circle(43% at 50% 50%); clip-path: circle(43% at 50% 50%);}
-.circle  {position:relative; -webkit-clip-path: circle(42.5% at 50% 52%); clip-path: circle(42.5% at 50% 52%); }
-.squareBg {display: inline-block; position:relative; background:#79c9f1; box-sizing:border-box; -webkit-clip-path: inset(9% 9% 12% 9%); clip-path: inset(9% 9% 12% 9%);}
-.square {display: inline-block; position:relative; background:#79c9f1; box-sizing:border-box; -webkit-clip-path: inset(10.5% 10.5%); clip-path: inset(10.5% 10.5%);}
-.triangleBg {display: inline-block; position:relative; background:#79c9f1; box-sizing:border-box; -webkit-clip-path: polygon(50% 0%, 0% 90%, 100% 90%);clip-path:polygon(50% 6%, 0% 90%, 100% 90%);}
-.triangle {display: inline-block; position:relative; background:#79c9f1; box-sizing:border-box; -webkit-clip-path: polygon(50% 10%, 0% 80%, 100% 80%);clip-path: polygon(50% 9%, 3% 91%, 97% 91%);}
-.triangle img {width: 98% !important; margin: 2% 1%;}
+.triangle img {width:98% !important; margin:2% 1%}
 
- /* Modal styles based on http://jsfiddle.net/4qck1vr7/ */
- .modalDialog {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgba(255,255,255,0.7);
-        z-index: 99999;
-        opacity:0;
-        -webkit-transition: opacity 400ms ease-in;
-        -moz-transition: opacity 400ms ease-in;
-        transition: opacity 400ms ease-in;
-        pointer-events: none;
-        overflow: scroll;
-    }
+/* Modal styles based on http://jsfiddle.net/4qck1vr7/ */
+.modalDialog > div {width:90%; margin:2% auto}
 
-    .modalDialog:target {
-        opacity:1;
-        pointer-events: auto;
-    }
+a.close {line-height:25px; right:-12px; top:-10px; width:26px}
+}
 
-    .modalDialog > div {
-        width: 45%;
-        position: relative;
-        margin: 2% auto;
-    }
+/*-------------------------------------------------------------------------TAMAÑO DE TABLET---------------------------------------------------------------*/
+@media only screen and (min-width:768px) {
+/* Containers */
+#main {margin:3% 4%}
+#bio {padding-bottom:4%}
+#map {height:360px; margin-top:2%}
+.paddingT {padding-top:2.5%}
 
-    img.preview {-moz-box-shadow: 1px 1px 3px #666;
-    -webkit-box-shadow: 1px 1px 3px #666;
-    box-shadow: 1px 1px 3px #666;}
+.col-25 {width:25%}
+.col-50 {width:50%; padding-right: 1.5%; box-sizing: border-box;}
+.col-20 {width:20%}
+.col-80 {width:80%}
+.col-100 {width:100%}
 
-    a.close {
-        background: #30789c;
-        color: #fff;
-        line-height: 25px;
-        position: absolute;
-        right: -12px;
-        text-align: center;
-        top: -10px;
-        width: 26px;
-        text-decoration: none;
-        font-weight: bold;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        border-radius: 12px;
-        -moz-box-shadow: 1px 1px 3px #666;
-        -webkit-box-shadow: 1px 1px 3px #666;
-        box-shadow: 1px 1px 3px #666;
+/* Profile */
+.bioText {padding-top:0.5%; padding-left:2%}
+.welcomemessage {line-height:1.6em}
+.date {line-height:1.45em}
+.education-entry, .work-entry, .project-entry {padding-top:2.5%}
+.project-entry {padding-bottom:2.5%}
+ul#topContacts, ul#skills {padding-top:1.5%; list-style:none}
+ul#topContacts li {padding:0 2.5% 0 0}
+ul#skills li {padding-right:1%}
+.education-entry, .work-entry, .project-entry {padding-top:2%}
+.project-entry {padding-bottom:2%}
 
-    }
+/* Modal styles based on http://jsfiddle.net/4qck1vr7/ */
+.modalDialog > div {width:85%; margin: 5% auto;}
+}
 
-    a.close:hover { background: #79c9f1}
+/*-----------------------------------------------------------------------TAMAÑO DE ESCRITORIO-------------------------------------------------------------*/
+@media only screen and (min-width:1280px) {
+/* Containers */
+#main {width:960px; margin:2% auto}
+#map {height:400px}
+.paddingT {padding-top:4%}
+
+/* Typography */
+h1 {font-size:1.55em;text-transform: capitalize;}
+h2 {font-size:1.4em; }
+h3 {font-size:1.2em; line-height:1.1em}
+h3.spec {font-size: 1.3em; padding-top: 1.2em}
+h4 {font-size:1.2em; }
+p {font-size:1.0em; line-height:1.4em}
+
+/* Profile */
+.location-text {line-height:1.2em}
+.date {line-height:1.5em}
+
+/* Modal styles based on http://jsfiddle.net/4qck1vr7/ */
+.modalDialog > div {width:45%; margin:2% auto}
+}
+style.css
