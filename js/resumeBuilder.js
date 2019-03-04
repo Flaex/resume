@@ -2,24 +2,24 @@
 let db = {
   bio: {
     name : 'Freddy polanía',
-    role : 'Visual designer and front-end web developer',
+    role : 'Graphic designer and front-end web developer',
     contacts : [
       {
-        mobile : '+58.414.134.91.30',
         email : 'fpolania@gmail.com',
-        github : 'https://github.com/Flaex',
-        showcase : 'https://www.behance.net/freddypolania'
+        showcase : 'https://www.behance.net/freddypolania',
+        linkedin : 'https://www.linkedin.com/in/freddypolania/',
+        github : 'https://github.com/Flaex'
       }
     ],
-    welcomeMessage: ' UI designer, web project management, corporate image and branding projects.',
-    skills: ['Visual designer', 'UI design', 'Web design', 'Logo and branding', 'Typography'],
+    welcomeMessage: 'I am a graphic designer and Front-End web developer passionate about design and development of multimedia web applications as means to improve the user experience. I like to actively participate in the creation of web products to combine usability and design properly.',
+    skills: ['Logo and branding design', 'Typography design', 'UI/UX design', 'CMS template design', 'Front-end implementation', 'HTML/CSS/JS'],
     biopic : 'me.jpg'
   },
   schools : [
     {
       name : 'Insituto de Diseño Darias',
       location : 'Caracas',
-      degree : 'Graphic Designer / Visual Communication',
+      degree : 'Graphic Designer, visual communication mention.',
       majors : ['Editorial design', 'Typography'],
       dates : 'July 2006 - May 2013',
     }
@@ -35,9 +35,9 @@ let db = {
     {
       title : 'Front-End Web Developer Nanodegree Program',
       school : 'Udacity',
-      location : 'Online program',
-      dates : 'October 2017 - present',
-      url : 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
+      location : 'United States',
+      dates : 'October 2017 - January 2019',
+      url : 'https://confirm.udacity.com/9UFAKCH5'
     }
   ],
   jobs : [
@@ -309,11 +309,11 @@ let HTMLbioPic = '<div class="bioPic col-20"><img src="images/%data%"></div>';
 let HTMLbioInfo = '<div class="bioText col-80">%data%</div>';
 let HTMLbioContactsStart = '<ul id="topContacts"><h4>Contact me:</h4></ul>';
 
-let HTMLmobile = '<li><i class="fa fa-phone"></i>%data%</li>';
-let HTMLemail = '<li><i class="fa fa-envelope"></i>%data%</a></li>';
-let HTMLgithub = '<li><a href="%data%" target="_blank"><i class="fa fa-github"></i>https://github.com/Flaex</a></li>';
-let HTMLshowcase = '<li><a href="%data%" target="_blank"><i class="fa fa-behance"></i>behance.net/freddypolania</a></li>';
-let HTMLwelcomeMsg = '<h3 class="welcomemessage">%data%</h3>';
+let HTMLemail = '<li><a href="mailto:fpolania@gmail.com"><i class="fa fa-envelope"></i></a></li>';
+let HTMLlinkedin = '<li><a href="%data%" target="_blank"><i class="fa fa-linkedin"></i></li>';
+let HTMLgithub = '<li><a href="%data%" target="_blank"><i class="fa fa-github"></i></a></li>';
+let HTMLshowcase = '<li><a href="%data%" target="_blank"><i class="fa fa-behance"></i></a></li>';
+let HTMLwelcomeMsg = '<h4 class="welcomemessage">%data%</h4>';
 
 let HTMLskillsStart = '<ul id="skills"><h4>Skills at a Glance:</h4></ul>';
 let HTMLskills = '<li><i class="fa fa-caret-right"></i>%data%</li>';
@@ -336,6 +336,7 @@ let HTMLprojectImageHref = '<a >';
 let HTMLprojectImageMask = '<img class="%data%"';
 let HTMLprojectImage = ' src="images/%data%"></a></div>';
 let HTMLprojectModal = '<div class="modalDialog"><div><a href="#close" title="Close" class="close"><strong>x</strong></a><img class="preview" src="images/%data%"></div></div>';
+let HTMLprojectSeparator = '<hr class="projects">';
 
 let HTMLschoolStart = '<div class="education-entry"></div><br>';
 let HTMLschoolName = '<h3>%data%';
@@ -347,7 +348,7 @@ let HTMLschoolLocation = '<div class="location-text">%data%</div>';
 let HTMLonlineTitle = '<h3 href="#">%data%';
 let HTMLonlineSchool = ' - %data%</h3>';
 let HTMLonlineDates = '<p class="date">%data%</p>';
-let HTMLonlineURL = '<a class="link" href="%data%" target="_blank">Go to website</a>';
+let HTMLonlineURL = '<a class="link" href="%data%" target="_blank">View</a>';
 
 let internationalizeButton = '<button>Internationalize</button>';
 let googleMap = '<div id="map"></div>';
@@ -389,11 +390,11 @@ let sectionRender = {
       }
       for (i=0; i < db.bio.contacts.length;i++) {
           $('.bioText').append(HTMLbioContactsStart);
-          let formattedMobile = HTMLmobile.replace('%data%', db.bio.contacts[i].mobile);
+          let formattedLinkedin = HTMLlinkedin.replace('%data%', db.bio.contacts[i].linkedin);
           let formattedEmail = HTMLemail.replace('%data%', db.bio.contacts[i].email);
           let formattedGithub = HTMLgithub.replace('%data%', db.bio.contacts[i].github);
           let formattedShowcase = HTMLshowcase.replace('%data%', db.bio.contacts[i].showcase);
-          let formattedItem = formattedMobile + formattedEmail + formattedShowcase + formattedGithub;
+          let formattedItem = formattedEmail + formattedLinkedin + formattedShowcase + formattedGithub;
           $('#topContacts').append(formattedItem);
       }
   },
@@ -471,9 +472,10 @@ let sectionRender = {
               ];
               let randomFigures = helpers.shuffle(shapes);
               let formattedItem = HTMLprojectImageContainer.replace('%data%', randomFigures[0][0] ) + HTMLprojectImageHref + HTMLprojectImageMask.replace('%data%', randomFigures[0][1]) + HTMLprojectImage.replace('%data%', arr[i].images[j].src)
-              + HTMLprojectModal.replace('%data%', arr[i].images[j].href);
+              + HTMLprojectModal.replace('%data%', arr[i].images[j].href) ;
               $('.project-entry:last').append(formattedItem);
           }
+          $('.project-entry:last').append(HTMLprojectSeparator)
           //Serial id's to a tag
           $.each($('.projectThumb a'), function(index, value){
               let num = index + 1;
